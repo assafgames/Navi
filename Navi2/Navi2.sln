@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp.Plugins", "Navi2.CSharp.Plugins.csproj", "{1C1304B2-7C3E-364A-A7F1-5FABEB443322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp", "Navi2.CSharp.csproj", "{B93C8EBF-4676-1393-C134-DD5865B85722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp.Editor.Plugins", "Navi2.CSharp.Editor.Plugins.csproj", "{D31EF481-5FD9-1507-9DA3-23E7452B8B66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C1304B2-7C3E-364A-A7F1-5FABEB443322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1304B2-7C3E-364A-A7F1-5FABEB443322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1304B2-7C3E-364A-A7F1-5FABEB443322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1304B2-7C3E-364A-A7F1-5FABEB443322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B93C8EBF-4676-1393-C134-DD5865B85722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B93C8EBF-4676-1393-C134-DD5865B85722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B93C8EBF-4676-1393-C134-DD5865B85722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B93C8EBF-4676-1393-C134-DD5865B85722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
