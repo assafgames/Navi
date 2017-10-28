@@ -84,6 +84,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Alef.cs" />
     <Compile Include="Assets\Scripts\MoveToClickPoint.cs" />
   </ItemGroup>
   <ItemGroup>
