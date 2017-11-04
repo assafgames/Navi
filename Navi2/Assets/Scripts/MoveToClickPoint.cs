@@ -1,10 +1,10 @@
 ﻿
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class MoveToClickPoint : MonoBehaviour
 {
-
     public GameObject Marker;
 
     private NavMeshAgent navMeshAgent;
@@ -18,37 +18,67 @@ public class MoveToClickPoint : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Check if the mouse was clicked over a UI element
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
-            {
-                if (hit.collider.gameObject.name == "Terrain" || hit.collider.tag == "ALEF")
-                {
-                    navMeshAgent.destination = hit.point;
-                    Marker.transform.position = hit.point;
-                }
-            }
+            return;
         }
 
-        bool walking = false;
+        if (Input.GetMouseButtonDown(0))
+        {
+            SetDestinationToMouseClick();
+        }
+        //set animation state acoording to movment state
+        anim.SetBool("Walk", !navMeshAgent.isStopped);
+
         if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
         {
             if (!navMeshAgent.hasPath || Mathf.Abs(navMeshAgent.velocity.sqrMagnitude) < float.Epsilon)
-                walking = false;
+                navMeshAgent.isStopped = true;
         }
         else
         {
-            walking = true;
+            navMeshAgent.isStopped = false;
         }
+    }
 
-        anim.SetBool("Walk", walking);
+    /// <summary>
+    /// Sets the destination to the correct place according to the mouse point
+    /// </summary>
+    private void SetDestinationToMouseClick()
+    {
+        RaycastHit hit;
 
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+        {
+            if (hit.collider.gameObject.name == "Terrain")
+            {
+                SetDestination(hit.point);
+            }
+            else if (hit.collider.tag == "Interactable")
+            {
+                Vector3 point = hit.collider.transform.position;
+                point.y = Terrain.activeTerrain.SampleHeight(point);
+                SetDestination(point);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Sets marker and new destination
+    /// </summary>
+    /// <param name="point"></param>
+    public void SetDestination(Vector3 point)
+    {
+        navMeshAgent.destination = point;
+        Marker.transform.position = point;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter " + other.gameObject.name);
+        if (other.gameObject.tag == "Interactable")
+        {
+            navMeshAgent.isStopped = true;
+        }
     }
 }

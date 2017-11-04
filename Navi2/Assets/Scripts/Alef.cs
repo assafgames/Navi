@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Alef : MonoBehaviour
 {
-    public float rotationSpeed = 10f;
+    public char Letter; 
+    public float rotationSpeed = 80f;
     public GameObject Boom;
     private bool spin = true;
 
@@ -19,12 +20,25 @@ public class Alef : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //only if player
+        if (other.gameObject.tag != "Player")
+        {
+            return;
+        }
         if (Boom != null)
         {
             spin = false;
-            transform.rotation = other.transform.rotation;
-
+            Boom.transform.position = transform.position;
             Boom.SetActive(true);
+            GameManager.Instance.SetLetter(Letter);
+            StartCoroutine(SetActiveAfterSeconds(2));
         }
+    }
+
+    IEnumerator SetActiveAfterSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        gameObject.SetActive(false);
+        Boom.SetActive(false);
     }
 }

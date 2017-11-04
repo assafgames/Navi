@@ -85,9 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Alef.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Interactable.cs" />
+    <Compile Include="Assets\Scripts\MoveInWayPoints.cs" />
     <Compile Include="Assets\Scripts\MoveToClickPoint.cs" />
+    <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UImanager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Elemental Free\Readme.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
   </ItemGroup>
