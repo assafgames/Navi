@@ -17,4 +17,14 @@ public class GameManager : Singleton<GameManager>
     {
         uiManager.HighlightLetter(letter);
     }
+
+    public void ShowText(string textToShow)
+    {
+        uiManager.ShowPanel(textToShow);
+    }
+
+    public void HideText()
+    {
+        uiManager.HidePanel();
+    }
 }

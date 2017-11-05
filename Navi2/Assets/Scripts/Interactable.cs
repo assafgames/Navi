@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private MoveInWayPoints moveInWayPoints;
-    public UImanager uiManager;
+    //public UImanager uiManager;
     public string textToShow = "";
     private Transform playerTransform;
     private int range = 10;
@@ -26,7 +26,8 @@ public class Interactable : MonoBehaviour
             {
                 interacts = true;
                 StopWalking();
-                uiManager.ShowPanel(textToShow);
+                //uiManager.ShowPanel(textToShow);
+                GameManager.Instance.ShowText(textToShow);
             }
             RotateTowards(playerTransform);
         }
@@ -35,7 +36,9 @@ public class Interactable : MonoBehaviour
             if (interacts)
             {
                 Walk();
-                uiManager.HidePanel();
+                //uiManager.HidePanel();
+                GameManager.Instance.HideText();
+
                 interacts = false;
             }
         }
