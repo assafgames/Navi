@@ -127,9 +127,30 @@
     <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
+    <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
     <None Include="Assets\Elemental Free\Readme.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Common\MKToonDef.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Common\MKToonInc.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Common\MKToonLight.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Common\MKToonV.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Forward\MKToonForward.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Forward\MKToonForwardAddSetup.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Forward\MKToonForwardBaseSetup.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Forward\MKToonForwardIO.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Outline\MKToonOutlineOnlyBase.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Outline\MKToonOutlineOnlyIO.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Outline\MKToonOutlineOnlySetup.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\ShadowCaster\MKToonShadowCaster.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\ShadowCaster\MKToonShadowCasterIO.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\ShadowCaster\MKToonShadowCasterSetup.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Surface\MKToonSurface.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\Inc\Surface\MKToonSurfaceIO.cginc" />
+    <None Include="Assets\_MK\MKToonFree\Shader\MKToonFree.shader" />
+    <None Include="Assets\_MK\MKToonFree\Shader\MKToonFreeMobile.shader" />
+    <None Include="Assets\_MK\MKToonFree\Shader\MKToonFreeOutlineOnly.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

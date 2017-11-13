@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp", "Navi2.CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp.Editor.Plugins", "Navi2.CSharp.Editor.Plugins.csproj", "{D31EF481-5FD9-1507-9DA3-23E7452B8B66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navi2.CSharp.Editor", "Navi2.CSharp.Editor.csproj", "{88B55DBD-AE08-4330-67D3-58FC93FC1635}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D31EF481-5FD9-1507-9DA3-23E7452B8B66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B55DBD-AE08-4330-67D3-58FC93FC1635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B55DBD-AE08-4330-67D3-58FC93FC1635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B55DBD-AE08-4330-67D3-58FC93FC1635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B55DBD-AE08-4330-67D3-58FC93FC1635}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
