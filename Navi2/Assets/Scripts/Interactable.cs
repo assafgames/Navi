@@ -7,13 +7,17 @@ public class Interactable : MonoBehaviour
     private MoveInWayPoints moveInWayPoints;
     //public UImanager uiManager;
     public string textToShow = "";
+    public bool isStatic = false;
     private Transform playerTransform;
     private int range = 10;
     private bool interacts = false;
 
     void Awake()
     {
-        moveInWayPoints = GetComponent<MoveInWayPoints>();
+        if (!isStatic)
+        {
+            moveInWayPoints = GetComponent<MoveInWayPoints>();
+        }
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
@@ -26,17 +30,19 @@ public class Interactable : MonoBehaviour
             {
                 interacts = true;
                 StopWalking();
-                //uiManager.ShowPanel(textToShow);
                 GameManager.Instance.ShowText(textToShow);
             }
-            RotateTowards(playerTransform);
+            if (!isStatic)
+            {
+                RotateTowards(playerTransform);
+            }
+            
         }
         else
         {
             if (interacts)
             {
                 Walk();
-                //uiManager.HidePanel();
                 GameManager.Instance.HideText();
 
                 interacts = false;
@@ -56,6 +62,11 @@ public class Interactable : MonoBehaviour
 
     private void WalkOrStop(bool walk)
     {
+        if (isStatic)
+        {
+            return;
+        }
+
         if (moveInWayPoints == null)
         {
             return;
@@ -73,6 +84,7 @@ public class Interactable : MonoBehaviour
 
     private void RotateTowards(Transform target)
     {
+
         transform.LookAt(target);
         //Vector3 direction = (target.position - transform.position).normalized*-1;
         //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
