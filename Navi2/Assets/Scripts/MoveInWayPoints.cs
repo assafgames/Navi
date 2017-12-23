@@ -61,6 +61,10 @@ public class MoveInWayPoints : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        if(WayPoints == null)
+        {
+            return;
+        }
         Gizmos.color = WayPointColor;
         foreach (Transform wayPoint in WayPoints)
         {
