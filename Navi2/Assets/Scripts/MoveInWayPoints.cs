@@ -61,14 +61,15 @@ public class MoveInWayPoints : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if(WayPoints == null)
+        if (WayPoints == null)
         {
             return;
         }
         Gizmos.color = WayPointColor;
         foreach (Transform wayPoint in WayPoints)
         {
-            Gizmos.DrawWireCube(wayPoint.position, Vector3.one);
+            if (wayPoint != null)
+                Gizmos.DrawWireCube(wayPoint.position, Vector3.one);
         }
     }
 
