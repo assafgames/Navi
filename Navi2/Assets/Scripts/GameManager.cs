@@ -18,9 +18,9 @@ public class GameManager : Singleton<GameManager>
         uiManager.HighlightLetter(letter);
     }
 
-    public void ShowText(string textToShow)
+    public void ShowText(string textToShow,Vector3 position)
     {
-        uiManager.ShowPanel(textToShow);
+        uiManager.ShowPanel(textToShow,position);
     }
 
     public void HideText()

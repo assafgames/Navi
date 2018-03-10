@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
             {
                 interacts = true;
                 StopWalking();
-                GameManager.Instance.ShowText(textToShow);
+                GameManager.Instance.ShowText(textToShow,transform.position);
             }
             if (!isStatic)
             {

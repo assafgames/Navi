@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class UImanager : MonoBehaviour
 {
     // the text in the panel
-    public Text PanelText;
+    public Text NameText;
 
     // the text panel
-    public GameObject Panel;
+    public GameObject NameCanvas;
 
     // the AlefPanel
     public Text AlefPanelText;
@@ -28,14 +28,15 @@ public class UImanager : MonoBehaviour
     // hids the panel
     public void HidePanel()
     {
-        Panel.SetActive(false);
+        NameCanvas.SetActive(false);
     }
 
     // show the panel with the given text
-    public void ShowPanel(string textToShow)
+    public void ShowPanel(string textToShow,Vector3 position)
     {
-        PanelText.text = textToShow;
-        Panel.SetActive(true);
+        NameText.text = textToShow;
+        NameCanvas.transform.position = position;
+        NameCanvas.SetActive(true);
     }
 
     public void HighlightLetter(char letterToHighlight)
