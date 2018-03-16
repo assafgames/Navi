@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     private MoveInWayPoints moveInWayPoints;
     //public UImanager uiManager;
     public string textToShow = "";
+
     public bool isStatic = false;
     private Transform playerTransform;
     private int range = 10;
@@ -30,7 +31,8 @@ public class Interactable : MonoBehaviour
             {
                 interacts = true;
                 StopWalking();
-                GameManager.Instance.ShowText(textToShow,transform.position);
+                Vector3 textPosition = new Vector3(transform.position.x,transform.position.y + 6,transform.position.z); 
+                GameManager.Instance.ShowText(textToShow,textPosition);
             }
             if (!isStatic)
             {

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UImanager : MonoBehaviour
 {
+    private Camera camera;
+    public TextMesh NameLabel;
     // the text in the panel
     public Text NameText;
 
@@ -21,8 +23,18 @@ public class UImanager : MonoBehaviour
 
     public void Start()
     {
+        camera = Camera.main;
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         HidePanel();
+    }
+    public void Update()
+    {
+        if (NameCanvas.activeInHierarchy)
+        {
+            //NameCanvas.transform.LookAt(camera.transform, Vector3.up);
+
+            NameCanvas.transform.LookAt(NameCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+        }
     }
 
     // hids the panel
@@ -31,8 +43,15 @@ public class UImanager : MonoBehaviour
         NameCanvas.SetActive(false);
     }
 
+    public void ShowText(string textToShow, Vector3 position)
+    {
+        NameLabel.text = textToShow;
+        position.y = position.y + 2;
+        NameLabel.transform.position = position;
+        NameLabel.gameObject.SetActive(true);
+    }
     // show the panel with the given text
-    public void ShowPanel(string textToShow,Vector3 position)
+    public void ShowPanel(string textToShow, Vector3 position)
     {
         NameText.text = textToShow;
         NameCanvas.transform.position = position;
