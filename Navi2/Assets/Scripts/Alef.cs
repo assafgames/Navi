@@ -31,14 +31,20 @@ public class Alef : MonoBehaviour
             Boom.transform.position = transform.position;
             Boom.SetActive(true);
             GameManager.Instance.SetLetter(Letter);
-            StartCoroutine(SetActiveAfterSeconds(2));
+            StartCoroutine(SetInActiveAfterSeconds(2));
         }
     }
 
-    IEnumerator SetActiveAfterSeconds(int seconds)
+    IEnumerator SetInActiveAfterSeconds(int seconds)
     {
         yield return new WaitForSeconds(seconds);
         gameObject.SetActive(false);
         Boom.SetActive(false);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireCube(transform.position, new Vector3(10,10,10));
     }
 }
