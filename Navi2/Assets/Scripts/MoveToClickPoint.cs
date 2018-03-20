@@ -19,10 +19,10 @@ public class MoveToClickPoint : MonoBehaviour
     void Update()
     {
         // Check if the mouse was clicked over a UI element
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }
+        // if (EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     return;
+        // }
 
         if (Input.GetMouseButtonDown(0))
         {
