@@ -8,7 +8,7 @@ public class Shooter : MonoBehaviour
     public Rigidbody projectile;
     public Transform gun;
     public int bulletSpeed = 20;
-    public int bulletLifeTime = 3;
+
     void Update()
     {
         // Put this in your update function
@@ -19,7 +19,7 @@ public class Shooter : MonoBehaviour
 
             clone.velocity = gun.transform.forward * bulletSpeed;
 
-            Destroy(clone.gameObject, bulletLifeTime);
+            //Destroy(clone.gameObject, bulletLifeTime);
         }
     }
 }
