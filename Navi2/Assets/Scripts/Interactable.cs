@@ -13,6 +13,7 @@ public class Interactable : MonoBehaviour
     private int range = 10;
     private bool interacts = false;
 
+    private Level1Manager levelManager;
 
     void Awake()
     {
@@ -21,6 +22,7 @@ public class Interactable : MonoBehaviour
             moveInWayPoints = GetComponent<MoveInWayPoints>();
         }
         playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        levelManager = GameObject.FindWithTag("LevelManager").GetComponent<Level1Manager>();
     }
 
     void Update()
@@ -32,21 +34,21 @@ public class Interactable : MonoBehaviour
             {
                 interacts = true;
                 StopWalking();
-                Vector3 textPosition = new Vector3(transform.position.x,transform.position.y + textHeight,transform.position.z); 
-                GameManager.Instance.ShowText(textToShow,textPosition);
+                Vector3 textPosition = new Vector3(transform.position.x, transform.position.y + textHeight, transform.position.z);
+                levelManager.ShowText(textToShow, textPosition);
             }
             if (!isStatic)
             {
                 RotateTowards(playerTransform);
             }
-            
+
         }
         else
         {
             if (interacts)
             {
                 Walk();
-                GameManager.Instance.HideText();
+                levelManager.HideText();
 
                 interacts = false;
             }

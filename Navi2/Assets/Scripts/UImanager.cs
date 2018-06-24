@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UImanager : MonoBehaviour
 {
-    private Camera camera;
+    private Camera _camera;
     public TextMesh NameLabel;
     // the text in the panel
     public Text NameText;
@@ -23,7 +23,7 @@ public class UImanager : MonoBehaviour
 
     public void Start()
     {
-        camera = Camera.main;
+        _camera = Camera.main;
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         HidePanel();
     }
@@ -33,7 +33,7 @@ public class UImanager : MonoBehaviour
         {
             //NameCanvas.transform.LookAt(camera.transform, Vector3.up);
 
-            NameCanvas.transform.LookAt(NameCanvas.transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
+            NameCanvas.transform.LookAt(NameCanvas.transform.position + _camera.transform.rotation * Vector3.forward, _camera.transform.rotation * Vector3.up);
         }
     }
 
@@ -60,7 +60,6 @@ public class UImanager : MonoBehaviour
 
     public void HighlightLetter(char letterToHighlight)
     {
-
         int charIndex = AlefPanelText.text.IndexOf(letterToHighlight);
         // Replace text with color value for character.
         AlefPanelText.text = AlefPanelText.text.Replace(AlefPanelText.text[charIndex].ToString(), "<color=#ffffff>" + AlefPanelText.text[charIndex].ToString() + "</color>");
