@@ -6,10 +6,9 @@ public class Alef : MonoBehaviour
 {
     public char Letter;
     public float rotationSpeed = 80f;
-    //public GameObject Boom;
-    //private bool spin = true;
+
     private Level1Manager levelManager;
-    
+
     void Awake()
     {
         levelManager = GameObject.FindWithTag("LevelManager").GetComponent<Level1Manager>();
@@ -17,11 +16,8 @@ public class Alef : MonoBehaviour
 
     void Update()
     {
-        //if (spin)
-        //{
-            // Rotate the object around its local X axis at 1 degree per second
-            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
-        //}
+        // Rotate the object around its local X axis at 1 degree per second
+        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime, Space.World);
     }
 
     void OnTriggerEnter(Collider other)
@@ -34,26 +30,6 @@ public class Alef : MonoBehaviour
 
         levelManager.HighlightLetter(Letter);
 
-        // if (Boom != null)
-        // {
-        //     spin = false;
-        //     Boom.transform.position = transform.position;
-        //     Boom.SetActive(true);
-        //     levelManager.HighlightLetter(Letter);
-        //     StartCoroutine(SetInActiveAfterSeconds(2));
-        // }
     }
 
-    // IEnumerator SetInActiveAfterSeconds(int seconds)
-    // {
-    //     yield return new WaitForSeconds(seconds);
-    //     //gameObject.SetActive(false);
-    //     Boom.SetActive(false);
-    // }
-
-    // void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.white;
-    //     Gizmos.DrawWireCube(transform.position, new Vector3(10, 10, 10));
-    // }
 }
