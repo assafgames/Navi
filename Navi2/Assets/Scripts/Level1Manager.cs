@@ -17,34 +17,19 @@ public class Level1Manager : MonoBehaviour
         ActivateLetter(activeLetterIndex);
     }
 
-    void ActivateLetter(int letterIndexToActivate)
-    {
-        for (int i = 0; i < Letters.Length; i++)
-        {
-            bool shouldBeActive = i == activeLetterIndex;
-            Alef letter = Letters[i];
-            if (letter.isActiveAndEnabled && !shouldBeActive)
-            {
-                Boom(letter.transform.position);
-            }
-            letter.gameObject.SetActive(i == activeLetterIndex);
-        }
-    }
-
     private void Boom(Vector3 position)
     {
         boom.transform.position = position;
         boom.SetActive(true);
-        StartCoroutine(SetInActiveAfterSeconds(2));
+        StartCoroutine(SetInActiveAfterSeconds(boom, 2));
     }
 
-    IEnumerator SetInActiveAfterSeconds(int seconds)
+    IEnumerator SetInActiveAfterSeconds(GameObject gameObject, int seconds)
     {
         yield return new WaitForSeconds(seconds);
-        //gameObject.SetActive(false);
-        boom.SetActive(false);
+        gameObject.SetActive(false);
     }
-    
+
     public void HighlightLetter(char letter)
     {
         //highlight letter in top panel
@@ -61,6 +46,19 @@ public class Level1Manager : MonoBehaviour
         }
     }
 
+    void ActivateLetter(int letterIndexToActivate)
+    {
+        for (int i = 0; i < Letters.Length; i++)
+        {
+            bool shouldBeActive = i == activeLetterIndex;
+            Alef letter = Letters[i];
+            if (letter.isActiveAndEnabled && !shouldBeActive)
+            {
+                Boom(letter.transform.position);
+            }
+            letter.gameObject.SetActive(i == activeLetterIndex);
+        }
+    }
     public void ShowText(string textToShow, Vector3 position)
     {
         uiManager.ShowPanel(textToShow, position);
