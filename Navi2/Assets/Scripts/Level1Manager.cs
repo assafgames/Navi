@@ -8,6 +8,8 @@ public class Level1Manager : MonoBehaviour
     public UImanager uiManager;
 
     public GameObject boom;
+
+    public GameObject finishBoom;
     private int activeLetterIndex = 0;
 
     public Alef[] Letters;
@@ -21,13 +23,19 @@ public class Level1Manager : MonoBehaviour
     {
         boom.transform.position = position;
         boom.SetActive(true);
-        StartCoroutine(SetInActiveAfterSeconds(boom, 2));
+        StartCoroutine(SetInActiveAfterSeconds(boom, 5));
     }
 
-    IEnumerator SetInActiveAfterSeconds(GameObject gameObject, int seconds)
+    IEnumerator SetInActiveAfterSeconds(GameObject gameObjectToDeActivate, int seconds)
     {
         yield return new WaitForSeconds(seconds);
-        gameObject.SetActive(false);
+        gameObjectToDeActivate.SetActive(false);
+    }
+
+    IEnumerator LevelSuccess( int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        GameManager.Instance.LevelSuccess(1);
     }
 
     public void HighlightLetter(char letter)
@@ -41,8 +49,9 @@ public class Level1Manager : MonoBehaviour
 
         if (activeLetterIndex == Letters.Length)
         {
+            finishBoom.SetActive(true);
             //we reached the end
-            GameManager.Instance.LevelSuccess(1);
+            StartCoroutine(LevelSuccess(5));
         }
     }
 
