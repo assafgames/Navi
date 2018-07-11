@@ -81,4 +81,9 @@ public class MoveToClickPoint : MonoBehaviour
             navMeshAgent.isStopped = true;
         }
     }
+
+    public void Dance()
+    {
+        anim.SetBool("Dance", true);
+    }
 }

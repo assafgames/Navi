@@ -63,9 +63,11 @@
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
      <Compile Include="Assets\Scripts\Alef.cs" />
+     <Compile Include="Assets\Scripts\CameraViewHelper.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Level1Manager.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\MoveInWayPoints.cs" />
      <Compile Include="Assets\Scripts\MoveToClickPoint.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />

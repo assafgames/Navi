@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -16,6 +17,11 @@ public class GameManager : Singleton<GameManager>
 
     public void LevelSuccess(int levelNumber)
     {
-        print("LevelSuccess:"+levelNumber);
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
+    public void GoToLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName, LoadSceneMode.Single);
     }
 }

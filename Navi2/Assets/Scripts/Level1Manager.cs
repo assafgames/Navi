@@ -12,6 +12,7 @@ public class Level1Manager : MonoBehaviour
     public GameObject finishBoom;
     private int activeLetterIndex = 0;
 
+    public MoveToClickPoint playerMovment;
     public Alef[] Letters;
 
     private void Start()
@@ -32,7 +33,7 @@ public class Level1Manager : MonoBehaviour
         gameObjectToDeActivate.SetActive(false);
     }
 
-    IEnumerator LevelSuccess( int seconds)
+    IEnumerator LevelSuccess(int seconds)
     {
         yield return new WaitForSeconds(seconds);
         GameManager.Instance.LevelSuccess(1);
@@ -50,8 +51,9 @@ public class Level1Manager : MonoBehaviour
         if (activeLetterIndex == Letters.Length)
         {
             finishBoom.SetActive(true);
+            playerMovment.Dance();
             //we reached the end
-            StartCoroutine(LevelSuccess(5));
+            StartCoroutine(LevelSuccess(10));
         }
     }
 
